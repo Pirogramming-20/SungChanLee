@@ -100,6 +100,7 @@
         #header-hambuger:hover::before {
             position: absolute;
             content: '';
+            z-index: 0;
             left: 1px;
             top : 1px;
             width: 44px;
@@ -113,11 +114,22 @@
             background-position: -335px -81px;
             background-repeat: no-repeat;
             width: 26px;
-            height: 26px;    
+            height: 26px; 
+            position: relative;
+            z-index: 1;
+        }
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
         }
         #main {
             height: 2000px;
         }
+
     </style>
 </head>
 <body>
@@ -125,7 +137,10 @@
         <div id = "wrap-center">
             <div id = "header">
                 <button id = "header-hambuger">
+                    <!-- ::before -->
                     <div></div>
+                    <span class="blind">확장 영역</span>
+                    <!-- ::after -->
                 </button>
             </div>
             <div id = "serch"></div>
