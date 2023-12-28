@@ -1,0 +1,248 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5ca80322e1.js" crossorigin="anonymous"></script>
+    <title>GitHub</title>
+    <style>
+        body{
+            width: 1440px;
+            height: 100%;
+            margin: 0 auto;
+            padding: 0;
+        }
+        
+        #top{
+            height: 620px;
+            background-color: rgb(44, 49, 55);
+        }
+        #header{
+            display: flex;
+            justify-content: space-between;
+        }
+        #header > div{
+            width: 500;
+            padding-right: 100;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items:center; 
+        }
+        #header > div form, #header >div button{
+            margin : 0;
+            color: white;
+        }
+        #header > div form{
+            display: inline-flex;
+            width: 200px;
+            height: 35px;
+            padding-left: 10px;
+            border-radius: 8px;
+            text-align: left;
+            background-color: rgb(70, 75, 85);
+        }
+        #search-input{
+            width: 150px;
+            padding-left: 5px;
+            font-size: 1rem;
+            line-height: 24px;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            background-color: rgb(70, 75, 85);
+            color: white;
+        }
+        #header >div button{
+            border: none;
+            outline: none;
+            background-color: transparent;
+            font-size: 1rem;
+            padding: 8px 0;
+        }
+        #navbar{
+            width: 600px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            padding-left: 100px;
+        }
+        #navbar > a, #navbar > details summary{
+            margin: 0;
+            color: white;
+        }
+        summary {
+            list-style: none; 
+            padding: 8px 16px; 
+            cursor: pointer; 
+            outline: none;
+        }
+        summary::after {
+            content: '\25BC'; 
+            margin-right: 5px;
+        }
+        footer{
+            height: 120px;
+            background-color: white;
+            display: flex;
+            align-items: end;
+            justify-content: flex-end;
+        }
+        footer > img{
+            padding-right: 50px;
+        }
+        main{
+            display: flex;
+        }
+        .blind {
+            position: absolute;
+            clip: rect(0 0 0 0);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+        }
+        #left{
+            display: inline-block;
+            margin-left: 250px;
+            margin-top: 100px;
+            width: 450px;
+            text-align: left;
+            color: white;
+        }
+        h1{
+            font-size: 3rem;
+        }
+        #left > p{
+            color:rgb(153, 156, 159)
+        }
+        b{
+            color: white;
+        }
+        #right{
+            margin-top: 30px;
+            display: inline-block;
+            width: 430px;
+            height: 470px;
+            border-radius: 5px;
+            background-color: white;
+            margin-left: 50px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        #right>p{
+            width: 370px;
+            font-size: .7rem;
+            color : rgb(172,174,177);
+        }
+        #right>button{
+            background-color: #03c75a;
+            color: white;
+            height: 60px;
+            width: 370px;
+        }
+        h2{
+            width: 370px;
+            text-align: left;
+            color:rgb(63, 67, 72);
+            font-size : 1rem;
+            margin: 0;
+        }
+        h2:nth-of-type(1){
+            margin-top: 20px;
+        }
+        .right{
+            width: 370px;
+            padding-left: 5px;
+            font-size: 1rem;
+            line-height: 2;
+            border-radius: 3px;
+            outline: none;
+            background-color: rgb(232, 240, 254);
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="top">
+        <header id = "header">
+            <nav id ="navbar">
+                <i class="fa-brands fa-github fa-2x" style="color: white;"></i>
+                <details>
+                    <summary>Why GitHub?</summary>
+                </details>
+                <a>
+                    team
+                </a>
+                <a>
+                    Enterprise
+                </a>
+                <details>
+                    <summary>Explore</summary>
+                </details>
+                <a>
+                    Marketplace
+                </a>
+                <details>
+                    <summary>pricing</summary>
+                </details>
+            </nav>
+            <div>
+                <form>
+                    <label for = "search-input" class = "blind"> 검색어 입력 </label>
+                    <input id = "search-input" type = "text" placeholder="search GitHub"/>
+                    <div id = "search-right">
+                        <button href="#" id ="search-keyboard">
+                            <span class = "blind">입력도구</span>
+                        </button>
+                    </div>             
+                </form>  
+            
+                <button>sign in</button>
+                <button>sign up</button>
+            </div>
+        </header>
+        <main>
+            <div id = "left">
+                <h1>Bulit for <br>devlopers</h1>
+                <p> 
+                    GitHub is a development platform inspired by the<br>
+                    way you work. Form <b>open source</b> to,<b>business</b> you<br>
+                    can host and review code, manage projects, and<br>
+                    build software alongside 50 million developers.
+                </p>
+            </div>
+            <div id = "right">
+                <h2>Username</h2>
+                <form>
+                    <input class = "right">
+                </form>
+                <h2>Email</h2>
+                <form>
+                    <input class = "right">
+                </form>
+                <h2>Password</h2>
+                <form>
+                    <input class = "right">
+                </form>
+                <p>
+                    Make. sure it's at least 15 characters OR at least 8 characters including a<br>
+                    number and a lowercase letter. <b style="color: skyblue;">Learn more.</b>
+                </p>
+                <button>
+                    sign up for GitHub
+                </button>
+                <p>
+                By cliking "Sign up for GitHub", you agree to our <b style="color: skyblue;">Terms of Service</b> and<br>
+                <b style="color: skyblue;">Privacy Statement.</b> We'll occasionally send you account related emails.
+                </p>
+            </div>
+        </main>
+    </div>
+    <footer>
+        <img src="./footer.png" width="400px" height="150px">
+    </footer>
+</body>
+</html>
