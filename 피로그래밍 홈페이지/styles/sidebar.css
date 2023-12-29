@@ -8,7 +8,6 @@
     right: -300px;
     transition: 0.3s;
     z-index: 1;
-    gap: var(--offset);
     font-size: 2rem;
   }
   #hamburger-icon input:checked ~ .sidebar {
