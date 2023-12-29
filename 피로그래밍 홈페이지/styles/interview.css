@@ -71,6 +71,12 @@
     gap: var(--gutter);
 }
 
+.interview-box-header-pic {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+}
 .interview-box-header-pic img {
     width: 100%;
     height: 100%;
