@@ -1,0 +1,144 @@
+.main{
+    min-width: 500;
+    height: 80vh;
+    margin: 0 auto;
+}
+
+#interview{
+    padding: 0 var(--offset) 50px;
+    width: min(100%, 1200px);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap:var(--gutter);
+}
+.interview-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: var(--gutter);
+    margin-bottom: var(--offset);
+}
+
+@media screen and (max-width: 850px){
+    .interview-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 600px){
+    .interview-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.interview-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#interview-header-right{
+    width: 55px;
+}
+
+#interview-header-center{
+    font-size: 2.2rem;
+}
+
+#interview-header-left{
+    width: 55px;
+    display: flex;
+    align-items: center;
+    gap: var(--gutter);
+}
+
+.interview-box {
+    background-color: #333333;
+    border-radius: 10px;
+    padding: var(--gutter);
+    cursor: pointer;
+    position: relative;
+}
+
+.interview-box:hover {
+    top: -2px;
+}
+
+.interview-box-header {
+    display: flex;
+    gap: var(--gutter);
+}
+
+.interview-box-header-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s;
+}
+
+.interview-box:hover .interview-box-header-pic img {
+    transform: scale(1.1);
+}
+
+.interview-box-header-right {
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.interview-box-header-right > div:last-child {
+    padding: 6px 8px;
+    font-size: 1.4rem;
+    border-radius: 5px;
+    color: white;
+}
+
+.non-major {
+    background: red;
+}
+
+.major{
+    background-color: blue;
+}
+
+.both-major {
+    background: green;
+}
+
+.interview-intro {
+    font-size: 1.6rem;
+    padding-top: var(--gutter);
+    line-height: 2rem;
+}
+
+.interview-more {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: var(--gutter);
+    top: var(--gutter);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.interview-more > div {
+    width: 100%;
+    height: 2px;
+    background-color: gray;
+    transition: 0.3s;
+}
+
+.interview-box:hover .interview-more > div:nth-of-type(1){
+    width: 50%;
+    margin-right: auto;
+}
+
+.interview-box:hover .interview-more > div:nth-of-type(3){
+    width: 50%;
+    margin-left: auto;
+} 
