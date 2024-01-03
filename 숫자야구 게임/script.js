@@ -116,7 +116,7 @@ function check_numbers(){
         resultImg.src = 'success.png';
     }
 
-    numLife -- ;
+    numLife --;
     if(numLife <= 0){
         submitButton.disabled = true;
         console.log("게임 종료")
