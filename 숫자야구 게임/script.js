@@ -118,6 +118,7 @@ function check_numbers(){
         submitButton.disabled = true;
         console.log("게임 승리")
         resultImg.src = 'success.png';
+        return;
     }
     // 확인하기 누를 때마다 life--
     numLife --;
@@ -126,5 +127,6 @@ function check_numbers(){
         submitButton.disabled = true;
         console.log("게임 오버")
         resultImg.src = 'fail.png';
+        return;
     }
 } 
