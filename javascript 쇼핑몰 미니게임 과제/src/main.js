@@ -33,7 +33,7 @@ function onButtonClick(event, items) {
     displayItems(items.filter(item => item[key] === value));
 }
   
-function setEventListeners(items) {
+ function setEventListeners(items) {
     const logo = document.querySelector('.logo');
     const buttons = document.querySelector('.buttons');
     logo.addEventListener('click', () => displayItems(items));
