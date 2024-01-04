@@ -1,0 +1,127 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.header{
+    display: flex;
+    width: 60%;
+    font-size: 3rem;
+    justify-content: center;
+}
+.stopwatch{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    background-color: gray;
+    border-radius: 10%;
+
+}
+.stopwatch-display{
+    width: 80%;
+    height: 40%;
+    border-radius: 20%;
+    display: flex;
+    align-items: center;
+    background-color: white;
+}
+.button-bar{
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+}
+.stopwatch-btn{
+    width: 80px;
+    height: 80px;
+    border-radius: 40%;
+    background-color: white;
+}
+.stopwatch-record{
+    width: 50%;
+    height: 30%;
+}
+.stopwatch-record > header{
+    padding: 2%;
+    border-radius: 30% 30% 0 0;
+    background-color: gray;
+    display: flex;
+    justify-content:space-around;
+    font-size: 2rem;
+    align-items: center;
+}
+
+input[type="checkbox"] {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid black;
+    appearance: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    background-color: white;
+}
+
+input[type="checkbox"]:checked {
+    background-image: url(./checked.png);
+    background-size: 1.5rem;
+    background-repeat:no-repeat;
+    background-position: 3px;
+}
+.trash-btn{
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+}
+.trash-btn:hover{
+    color: orange;
+}

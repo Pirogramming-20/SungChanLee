@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <script src="https://kit.fontawesome.com/5ca80322e1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <header class = "header"><i class="fa-solid fa-stopwatch"></i><span> 스톱 워치</span></header>
+        <main class ="stopwatch">
+            <div class="stopwatch-display">
+
+            </div>
+            <div class = "button-bar">
+                <button class="stopwatch-btn" id = "start">
+                    <span>start</span>
+                </button>
+                <button class="stopwatch-btn" id = "stop">
+                    <span>stop</span>
+                </button>
+                <button class="stopwatch-btn" id = "reset">
+                    <span>reset</span>
+                </button>
+            </div>
+        </main>
+        <div class="stopwatch-record"> 
+            <header>
+                <label for="checkbox"><input type="checkbox" name="check-all" id = "checkbox"></label>
+                <span>구간기록</span>
+                <button class="trash-btn" id = "reset">
+                    <i class="fa-solid fa-trash"></i>
+                </button>    
+            </header>
+        </div>
+    </div>
+</body>
+</html>
