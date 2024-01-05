@@ -22,6 +22,8 @@ while(True):
         if i == 31:
             print("player win!")
             break
+    if i == 31:
+        break
     num += num_input
     # player
     num_input = brGame()
@@ -30,4 +32,6 @@ while(True):
         if i == 31:
             print("computer win!")
             break
+    if i == 31:
+        break
     num += num_input
