@@ -1,9 +1,3 @@
-// 어려운데?
-// 10ms단위 증가 ㅇㅈ?
-// gettime으로 현재 시간 계속 받고 10ms 마다 숫자 증가 하면 되지않을까? ==> 개에바
-// setTimeout()으로 10ms마다 더하기
-// setInterval 함수가 있네......
-
 // 타이머 기능
 let stopwatch_time_10ms = 0;
 let flag_timer = false; // 시작 여부
@@ -20,14 +14,6 @@ function time_10ms_inf(callback){
         time_10ms_inf(callback) // 무한 재귀
     },10)
 }
-
-// 타이머 2
-// const time_10ms_inf_2 = function(){
-//     setInterval(()=>{
-//         stopwatch_time_10ms++;
-//         console.log(stopwatch_time_10ms);
-//     },10)
-// }
 
 // 시간 표시 기능
 const display_time = document.querySelector(".stopwatch-display"); // 시간 표시 창
@@ -89,10 +75,8 @@ button_started.addEventListener("click", function() {
 // 멈춤
 button_stop.addEventListener("click", function() {
     flag_timer = false;
-    //문제 : stop시 원하는 것 보다 하나더 증가 --> 왜?
-    // record 시점 문제?
-    //--> 콜백 프로미스 해봤는데 해결 x
-    // 원인 = 스택에 재귀가 하나더 남음 ==> 예외처리
+    //문제 : stop시 원하는 것 보다 하나더 증가
+    //원인 = 스택에 재귀가 하나더 남음 ==> 예외처리
     record(stopwatch_time_10ms);
 })
 
