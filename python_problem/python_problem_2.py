@@ -118,7 +118,7 @@ while True :
                 print(e)
             else:    
                 Menu4(del_student_name)
-                print("kim student information is deleted.")
+                print(del_student_name,"student information is deleted.")
     elif choice == "5" :
         #프로그램 종료 메세지 출력
         #반복문 종료
