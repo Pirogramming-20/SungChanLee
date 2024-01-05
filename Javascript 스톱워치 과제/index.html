@@ -6,13 +6,14 @@
     <title>Stopwatch</title>
     <script src="https://kit.fontawesome.com/5ca80322e1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./style.css">
+    
 </head>
 <body>
     <div class="container">
         <header class = "header"><i class="fa-solid fa-stopwatch"></i><span> 스톱 워치</span></header>
         <main class ="stopwatch">
             <div class="stopwatch-display">
-
+                <span>00 : 00</span>
             </div>
             <div class = "button-bar">
                 <button class="stopwatch-btn" id = "start">
@@ -27,14 +28,15 @@
             </div>
         </main>
         <div class="stopwatch-record"> 
-            <header>
-                <label for="checkbox"><input type="checkbox" name="check-all" id = "checkbox"></label>
+            <div class="record-header">
+                <label><input type="checkbox" class = "all-check"></label>
                 <span>구간기록</span>
-                <button class="trash-btn" id = "reset">
+                <button class="trash-btn" id = "del">
                     <i class="fa-solid fa-trash"></i>
                 </button>    
-            </header>
+            </div>
         </div>
     </div>
 </body>
+<script src="./script.js"></script>
 </html>

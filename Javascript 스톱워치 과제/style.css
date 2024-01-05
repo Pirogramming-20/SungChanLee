@@ -60,7 +60,7 @@ table {
     justify-content: space-around;
     align-items: center;
     width: 50%;
-    height: 50%;
+    height: 35%;
     background-color: gray;
     border-radius: 10%;
 
@@ -72,6 +72,8 @@ table {
     display: flex;
     align-items: center;
     background-color: white;
+    font-size: 3rem;
+    justify-content: center;
 }
 .button-bar{
     width: 80%;
@@ -86,12 +88,26 @@ table {
 }
 .stopwatch-record{
     width: 50%;
-    height: 30%;
+    height: 45%;
+    overflow: auto;
 }
-.stopwatch-record > header{
+.stopwatch-record span{
+    width: 150px;
+    text-align: center;
+}
+.record-header{
     padding: 2%;
     border-radius: 30% 30% 0 0;
     background-color: gray;
+    display: flex;
+    justify-content:space-around;
+    font-size: 2rem;
+    align-items: center;
+}
+.record-div{
+    padding: 2%;
+    border-radius: 30% 30% 0 0;
+    background-color: white;
     display: flex;
     justify-content:space-around;
     font-size: 2rem;
@@ -124,4 +140,8 @@ input[type="checkbox"]:checked {
 }
 .trash-btn:hover{
     color: orange;
+}
+.div-format{
+    width: 2rem;
+    height: 2rem;
 }
