@@ -16,7 +16,8 @@ while(True):
     for i in range(num + 1, num+num_1to3 + 1):
         print("playerA :",i)
         if i == 31:
-            print("playerA win!")
+            # 6단계에서 해버렸어요..... 근데 승자가 반대라 수정할게요
+            print("playerB win!")
             break
     num += num_1to3
     # playerB
@@ -35,6 +36,7 @@ while(True):
     for i in range(num + 1 , num+num_1to3 + 1):
         print("playerB :",i )
         if i == 31:
-            print("playerB win!")
+            # 6단계에서 해버렸어요..... 근데 승자가 반대라 수정할게요
+            print("playerA win!")
             break
     num += num_1to3
