@@ -1,3 +1,4 @@
+import random
 num = 0
 def brGame():
     while(True):
@@ -14,19 +15,19 @@ def brGame():
             return num_1to3 
         
 while(True):
-    # playerA
-    num_input = brGame()
+    # computer
+    num_input = random.randint(1,3)
     for i in range(num + 1, num + num_input + 1):
-        print("playerA :",i)
+        print("computer :",i)
         if i == 31:
-            print("playerB win!")
+            print("player win!")
             break
     num += num_input
-    # playerB
+    # player
     num_input = brGame()
     for i in range(num + 1 , num + num_input + 1):
-        print("playerB :",i )
+        print("player :",i )
         if i == 31:
-            print("playerA win!")
+            print("computer win!")
             break
     num += num_input
