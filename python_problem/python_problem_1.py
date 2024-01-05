@@ -11,7 +11,7 @@ while(True):
         print(e)
     else:
         break
-
-num  = num_1to3
-for i in range(num):
+num = 3
+for i in range(num, num+num_1to3):
     print("playerA : ",i + 1)
+num += num_1to3
