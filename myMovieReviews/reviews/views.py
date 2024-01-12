@@ -8,9 +8,8 @@ def review_list(request):
         sort_option = request.POST.get('sort_option')
         reviews = Review.objects.all().order_by( '-' + sort_option)
         return render(request, 'reviews/review_list.html', {'reviews': reviews})
-    
     # 기본 --> 별점 순
-    reviews = Review.objects.all().order_by('rating')
+    reviews = Review.objects.all().order_by('-rating')
     return render(request, 'reviews/review_list.html',  {'reviews': reviews})
 
 def review_detail(request, pk):
