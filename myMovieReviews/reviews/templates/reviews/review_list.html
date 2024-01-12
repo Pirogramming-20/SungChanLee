@@ -1,0 +1,48 @@
+{% extends 'reviews/review_base.html' %}
+
+{% block content %}
+    <div class="list_header">
+        <h2 class = "header">영화 리스트</h2>
+        <form method="post" action="{% url 'view_list' %}">
+            {% csrf_token %}
+            <label for="sort-option">정렬 기준:</label>
+            <select id="sort-option" name="sort_option">
+                <option value="rating">별점 순</option>
+                <option value="title">이름 순</option>
+                <option value="save_date">최신 리뷰 순</option>
+                <option value="release_year">최신 개봉 순</option>
+            </select>
+            <button type="submit">Sort</button>
+        </form>
+    </div>
+    <ul class="col">            
+    {% for review in reviews %}
+        <li class = "review_preview">
+            <a href="{% url 'review_detail' pk=review.pk %}">
+                <div class="review">
+                    {% if review.image_url %}
+                        <div class="movie_img" style="background-image: url('{{ review.image_url }}');">
+                            <div class="movie_number"><span>{{ forloop.counter }}</span></div>
+                        </div>
+                    {% else %}
+                    <!-- URL이 없을 경우 -->
+                        <div class="movie_img" style="background-color: gray">
+                            <div class="movie_number"><span>{{ forloop.counter }}</span></div>
+                        </div>
+                    {% endif %}
+                    <div class = "movie_content">
+                        <h3 class="movie_title">{{ review.title }}</h3>
+                        <span>{{review.release_year}}</span>
+                        <span> / </span>
+                        <span>{{review.genres}}</span>
+                        <br>
+                        <span>평균 : </span>
+                        <i class="fa-solid fa-star"></i>
+                        <span>{{ review.rating|linebreaksbr }}</span>
+                    </div>
+                </div>
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

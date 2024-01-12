@@ -1,0 +1,50 @@
+{% extends 'reviews/review_base.html' %}
+
+{% block content %}
+    <div class="review">
+        <div class="header_container">
+            <div class="header_left">
+                <h1 class="header">{{ review.title }}</h1>
+            </div>
+            <div class="header_right">
+            {% if user.is_authenticated %}
+                <a class="btn btn-default" href="{% url 'review_edit' pk=review.pk %}">
+                    <i class="fa-solid fa-pencil"></i>
+                    <span>수정하기</span>
+                </a>
+            {% endif %}
+            {% if user.is_authenticated %}
+                <form action="delete/" method="post">
+                    <i class="fa-solid fa-trash"></i>
+                    {% csrf_token %}
+                    <input type = "submit" value="삭제하기">
+                </form>
+            {% endif %}
+            </div>
+        </div>
+        <div class="detail_main">
+            <div class="detail_movie_img">
+            {% if review.image_url %}
+                <div class="movie_img" style="background-image: url('{{ review.image_url }}');"></div>
+            {% else %}
+            <!-- URL이 없을 경우 -->
+                <div class="movie_img" style="background-color: gray"></div>
+            {% endif %}
+            </div>
+            <div class="movie_info">
+                <p>개봉 연도 : {{review.release_year}}</p>
+                <p>감독 : {{review.directors}}</p>
+                <p>주연 : {{review.actors}}</p>
+                <p>장르 : {{review.genres}}</p>
+                <p>별점 : {{review.rating}}</p>
+                <p>러닝타임 : {{review_running_time_hour}}시간 {{review_running_time_min}}분 </p>
+            </div>
+        </div>
+        <div>
+
+        </div>
+        <div class="movie_review_content">
+            <p>{{ review.content|linebreaksbr }}</p>
+        </div>
+    </div>
+{% endblock %}

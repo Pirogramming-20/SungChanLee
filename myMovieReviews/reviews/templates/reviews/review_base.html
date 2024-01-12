@@ -1,0 +1,25 @@
+{% load static %}
+<html>
+    <head>
+        <title>myMovieReviews</title>
+        <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+        <link rel="stylesheet" href="{% static 'css/review.css' %}">
+        <script src="https://kit.fontawesome.com/5ca80322e1.js" crossorigin="anonymous"></script>
+    </head>
+    <body> 
+        <div class="page-header">
+        
+            <h1 class="logo"><a href="/">myMovie🎬Reviews</a>🍿</h1>
+            {% if user.is_authenticated %}
+                <div class="review_create"><a href="{% url 'review_create' %}" class="top-menu"><i class="fa-solid fa-pencil"></i><span>리뷰 쓰기</span></a></div>
+            {% endif %}
+        
+        </div>
+        <div class="main_container container">
+            <div class="row">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
