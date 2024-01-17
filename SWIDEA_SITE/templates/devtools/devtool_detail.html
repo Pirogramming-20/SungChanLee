@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+{%block header%}
+    <h2>개발툴 상세페이지</h2>
+    <p>개발툴 상세페이지입니다</p>
+{%endblock%}
+
+{%block content%}
+    <div class="detail">
+        <div class="detail_main">
+            <div class="detail_info">
+                <h1>{{devtool.name}}</h1>
+                <p>{{devtool.kind}}</p>
+                <p>{{devtool.content}}</p>
+                <div class="relate">
+                    <h3>이 개발 툴을 사용하는 아이디어들</h3>
+                    {% for idea in related_ideas %}
+                        <a href="{% url 'ideas:detail' idea.pk %}">
+                        {{idea.title}}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="buttons">
+            <form action="{% url 'devtools:delete' devtool.pk %}" method="POST">
+                {%csrf_token%}
+                <button type="submit" href="{% url 'devtools:delete' devtool.pk %}" class="btn_del">삭제하기</button>
+            </form>
+            
+            <a href="{% url 'devtools:list' %}"> 목록 </a>
+            
+            <form action="{% url 'devtools:update' devtool.pk %}" method="POST">
+                {%csrf_token%}
+            <a href="{% url 'devtools:update' devtool.pk %}" class="btn btn-primary">수정하기</a>
+            </form>
+        </div>
+    </div>
+{%endblock%}

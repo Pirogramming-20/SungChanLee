@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{%block header%}
+    <h2>개발툴 수정</h2>
+    <p>개발툴을 수정하세요</p>
+{%endblock%}
+
+{%block content%}
+<div class="form">
+  <form action="{% url 'devtools:update' pk %}" method="post">
+    {%csrf_token%} {{form.as_p}}
+    <button class="btn btn-primary">수정 완료</button>
+  </form>
+</div>
+{%endblock%}

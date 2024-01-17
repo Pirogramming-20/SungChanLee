@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">  
+    <title>Document</title>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="{% url 'ideas:list' %}">My SW idea manager</a>
+        </div>
+        <nav class="header_nav">
+            <ul>
+                <li><a href="{% url 'ideas:create' %}" class="nav_li">아이디어 등록</a></li>
+                <li><a href="{% url 'ideas:list' %}" class="nav_li">아이디어 관리</a></li>
+                <li><a href="{% url 'devtools:create' %}" class="nav_li">개발툴 등록</a></li>
+                <li><a href="{% url 'devtools:list' %}" class="nav_li">개발툴 관리</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class = "main_header">
+                {%block header%}
+
+                {%endblock%}
+            </div>
+            {%block content%}
+
+            {%endblock%}
+        </div>       
+    </main>
+</body>
+</html>

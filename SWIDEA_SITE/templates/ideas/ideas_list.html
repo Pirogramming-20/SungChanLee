@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{%block header%}
+    <h2>아이디어 관리</h2>
+    <p>당신의 아이디어를 관리하세요</p>
+    <form method="post" action="{% url 'ideas:list' %}">
+        {% csrf_token %}
+        <label for="sort-option">정렬 기준:</label>
+        <select id="sort-option" name="sort_option">
+            <option value="" selected disabled hidden>--------</option>
+            <option value="title">이름 순</option>
+            <option value="-id">최신 순</option>
+            <option value="id">등록 순</option>
+            <option value="-interest">관심도 순</option>
+        </select>
+        <button type="submit">Sort</button>
+    </form>
+{%endblock%}
+
+{%block content%}
+    <div class = "idea_list">    
+        {% for idea in ideas %}
+            <div class = "list_li">
+                {% if idea.image.url != NULL and idea.image.url != '' %}
+                    <img src = "{{idea.image.url}}" alt = "대체 텍스트">
+                {% else %}
+                    <img src = "{% static 'ideas/image/no_img.png' %}" alt = "대체 텍스트">
+                {% endif %}
+                <div class = 'info'>
+                    <a href = "{% url 'ideas:detail' idea.pk%}" class="title">{{idea.title}}</a>
+                    <p class = "idea_kind">개발 툴 :{{idea.devtool}}</p>
+                    <p class = "idea_interest">관심도 : {{idea.interest}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{%endblock%}

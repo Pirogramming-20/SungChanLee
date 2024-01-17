@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block header%}
+    <h2>아이디어 상세페이지</h2>
+    <p>아이디어 상세 페이지입니다</p>
+{%endblock%}
+
+{%block content%}
+    <div class="detail">
+        <div class="detail_main">
+            {% if idea.image.url != '' %}
+                <img src="{{idea.image.url}}" alt="이미지" />
+            {% else %}
+                <img src="{% static 'ideas/image/no_img.png' %}" alt="대체 텍스트" />
+            {% endif %}
+            <div class="detail_info">
+                <h1>{{idea.title}}</h1>
+                <p>1. 관심도 : {{idea.interest}}</p>
+                <a href="{% url 'devtools:detail' idea.devtool.id %}">2. 개발 툴 : {{idea.devtool}}</ㅁ>
+                <p>3. 내용 : {{idea.content}}</p>
+            </div>
+        </div>
+        <div class="buttons">
+            <form action="{% url 'ideas:delete' idea.pk %}" method="POST">
+                {%csrf_token%}
+                <button type="submit" href="{% url 'ideas:delete' idea.pk %}" class="btn_del">삭제하기</button>
+            </form>
+
+            <a href="{% url 'ideas:list' %}"> 목록 </a>
+            <form action="{% url 'ideas:update' idea.pk %}" method="POST">
+                {%csrf_token%}
+            <a href="{% url 'ideas:update' idea.pk %}">수정하기</a>
+            </form>
+        </div>
+    </div>
+{%endblock%}

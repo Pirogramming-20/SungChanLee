@@ -1,0 +1,155 @@
+*{
+    box-sizing: border-box;
+}
+
+
+a{
+    text-decoration: none;
+    color: white;
+}
+html{
+    width: 100vw;
+    height: 100vh;
+    background-image: url(../image/matrix-1735640_1280.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
+    color: white;
+}
+
+.header{
+    display: flex;
+    justify-content:space-between;
+    border-bottom: 2px solid white;
+}
+
+.logo{
+    margin: 20px 40px;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+}
+
+.header_nav > ul{
+    display: flex;
+}
+
+.header_nav li{
+    margin: 20px 30px;
+    font-size: 1.3rem;
+}
+
+main 
+{
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: rgba(128, 128, 128, 0.7); 
+    height: calc(90vh - 120px);
+    width: 80%;
+}
+
+.container{
+    margin: auto 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.idea_list{
+    display: flex;
+    width: 100%;
+}
+
+.list_li{
+    display: flex;
+    flex-direction: column;
+    width: 21%;
+    padding: 0 2%;
+    margin: 0 2%;
+    background-color: white;
+}
+
+.info , .info > a{
+    margin: 20px 0;
+    color: black;
+}
+
+.detail{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+.detail_main{
+    border: 3px solid gray;
+    display: flex;
+}
+.form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col_list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dev_list_li{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    border-top: 1px solid white ;
+    padding: 20px;
+    font-size: 1.2rem;
+}
+
+.main_header *{
+    margin: 10px;
+    text-align: center;
+} 
+
+.buttons{
+    display: flex;
+    justify-content: center;
+}
+.buttons > * {
+    display: flex;
+    margin: 10px 20px;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    align-items: center;
+    font-size: 1.2rem;
+}
+.btn_del{
+    font-size: 1.2rem;
+    border: none;
+}
+.buttons a{
+    color: black;
+    padding :3px
+}
+.detail_info{
+    display: flex;
+    flex-direction: column;
+    padding: 0 30px;
+    width: 100%;
+}
+
+.relate{
+    border-top: 3px solid gray;
+    margin: 20px 0;
+}
+.relate > a {
+    padding-left: 10px;
+    color: aqua;
+}
+img{
+    width: 100%;
+}
+.detail_main >img{
+    width: 20%;
+}
