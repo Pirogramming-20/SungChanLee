@@ -1,0 +1,127 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="main__container">
+        {% for post in posts %}
+            <div class="card post__container post-id-{{ post.id }}">
+                <div class="card-body">
+                    <div class="post__img">
+                        <img src="{% static 'img/img_lights.jpg' %}" alt="...">
+                    </div>
+                    <div class="card-title">{{ post.title }}</div>
+                    <div class="card-text">{{ post.content}}</div>
+                    <div class="btn btn-primary post-like" onclick=" onClickLike({{ post.id }})">Like {{ post.likes.count }}</div>
+                    
+                    <div id="commentinput">
+                        <input type="text" id="commentInput-{{ post.id }}" placeholder="댓글 남기기" required>
+                        <button input-id="{{ post.id }}">댓글 달기</button>
+                    </div>
+                    
+                    <div id="commentList-{{post.id}}">
+                        {% for comment in post.comment.all %}
+                        <div class="comment" id="comment-{{ comment.id }}">
+                            {{ comment.user.name }}: {{ comment.content }}
+                            <button onclick="deleteComment({{ comment.id }});">댓글 삭제</button>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+
+{% block extra %}
+<script>
+    const requestCreateComment = new XMLHttpRequest();
+
+    const createComment = (postId) => {
+        const commentContent = document.getElementById(`commentInput-${postId}`).value;
+        const url = "/create_comment/";
+        requestCreateComment.open("POST", url, true);
+        requestCreateComment.setRequestHeader(
+            "Content-Type", 
+            "application/x-www-form-urlencoded");
+        requestCreateComment.send(JSON.stringify({ id: postId , comment_content : commentContent}));
+    }
+
+    requestCreateComment.onreadystatechange = () => {
+        if (requestCreateComment.readyState == XMLHttpRequest.DONE) {
+            if (requestCreateComment.status < 400) {
+                const { post_id, comment, user, comment_id } = JSON.parse(requestCreateComment.response);
+                const commentList = document.getElementById(`commentList-${post_id}`);
+                
+                const newComment = document.createElement("div");
+                newComment.className = "comment"
+                newComment.id = `comment-${ comment_id }`
+                newComment.innerHTML = `
+                    ${user}: ${comment}
+                    <button onclick="deleteComment(${ comment_id });">댓글 삭제</button>
+                    `;
+                commentList.appendChild(newComment);
+            } 
+        }
+    }
+
+    document.querySelectorAll('[input-id]').forEach(function(button) {
+        button.addEventListener('click', function() {
+            const postId = this.getAttribute('input-id');
+            createComment(postId);
+        }); 
+    });
+   
+    const requestDeleteComment = new XMLHttpRequest();
+
+    const deleteComment = (commentId) => {
+        const url = "/delete_comment/";
+        requestDeleteComment.open("POST", url, true);
+        requestDeleteComment.setRequestHeader(
+            "Content-Type", 
+        "application/x-www-form-urlencoded");
+        requestDeleteComment.send(JSON.stringify({ id: commentId }));
+    }
+
+    requestDeleteComment.onreadystatechange = () => {
+        if (requestDeleteComment.readyState == XMLHttpRequest.DONE) {
+            if (requestDeleteComment.status < 400) {
+                const { comment_id } = JSON.parse(requestDeleteComment.response);
+                const commentToDelete = document.getElementById(`comment-${comment_id}`);
+                if (commentToDelete) {
+                    commentToDelete.parentNode.removeChild(commentToDelete);
+                }
+            }
+        }
+    }
+
+    const requestLike = new XMLHttpRequest();
+
+    const onClickLike = (id) => {
+        const url = "/like_ajax/";
+        requestLike.open("POST", url, true);
+        requestLike.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        requestLike.send(JSON.stringify({id : id}));
+    }
+
+    requestLike.onreadystatechange = () => {
+        if (requestLike.readyState == XMLHttpRequest.DONE){
+            if(requestLike.status < 400 ){
+                const{id,result} = JSON.parse(requestLike.response);
+                const element = document.querySelector(`.post-id-${id} .post-like`);
+                const originHTML = element.innerHTML;
+                const [buttonType, num] = originHTML.split(" ");
+                let count;
+                if(result == 'like added')
+                    count = Number(num) + 1;
+                else
+                    count = Number(num) - 1;
+                element.innerHTML = `${buttonType} ${count}`;
+            }
+        }
+    }
+</script> 
+{% endblock %}

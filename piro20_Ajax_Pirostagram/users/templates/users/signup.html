@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="Flex_cc">
+    <form method="POST" action="" id="signup1">
+        {% csrf_token %}
+        {{ form }}
+        <div class="container">
+            <input class="signup1-btn nice-effect" type="submit" value="회원가입">
+            <div class="overlay"></div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
