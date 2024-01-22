@@ -19,6 +19,7 @@ html{
 }
 
 .header{
+    padding: 0 50px;
     display: flex;
     justify-content:space-between;
     border-bottom: 2px solid white;
